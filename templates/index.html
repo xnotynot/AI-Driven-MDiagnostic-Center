@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>AI Driven Diagnistic Center</title>
+  <!-- Bootstrap CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- custom CSS-->
+  <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center jumbo-bg">
+        <h1 class="header-font">AI Driven Diagnostic Center</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h6 class="text-light"><strong>Use the interactive pages below to explore and query the system</strong></h6>
+      </div>
+    </div>
+    <!-- List of scenarios  -->
+    <div class="accordion" id="accordionAIPrediction">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Heart Disease
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <form class="row g-3 needs-validation" novalidate action="/heart" method="post">
+              <div class="col-md-3">
+                <label for="validationModel" class="form-label"><strong>Select Model</strong></label>
+                <select class="form-select" id="validationModel" value="0" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="0">Logistic Regression</option>
+                  <option value="1">K-nearest Neighbors</option>
+                  <option value="2">Support Vector Machine</option>
+                  <option value="3">Decision Tree Classifier</option>
+                  <option value="4" selected="selected">Random Forest Classfier</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid model.
+                </div>
+              </div>
+              <hr class="bg-danger border-2 border-top border-danger">
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="age" class="form-label"><strong>Age</strong></label>
+                  <input type="number" class="form-control" id="validationAge" value="40" required>
+                </div>
+                <div class="col-md-3">
+                  <label for="sex" class="form-label"><strong>Sex</strong></label>
+                  <select class="form-select" id="validationSex" value="0" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select Model
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="cp" class="form-label"><strong>Chest Pain Type</strong></label>
+                <select class="form-select" id="validationChestPainType" value="0" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="0" selected="selected">asymptomatic ASY</option>
+                  <option value="1">atypical angina ATA</option>
+                  <option value="2">non-anginal pain NAP</option>
+                  <option value="3">typical angina TA</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid Chest Pain Type.
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="trestbps" class="form-label"><strong>Resting Blood Pressure</strong></label>
+                <input type="number" class="form-control" id="validationRestingBP" value="140" required>
+                <div class="invalid-feedback">
+                  Please select a valid Resting Blood Pressure
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="chol" class="form-label"><strong>Chloestrol</strong></label>
+                <input type="number" class="form-control" id="validationCholestrol" value="234" required>
+                <div class="invalid-feedback">
+                  Please provide a valid value for Chloestrol
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="fbs" class="form-label"><strong>Fasting Blood Sugar</strong></label>
+                <select class="form-select" id="validationFastingBS" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="0" selected="selected">No</option>
+                  <option value="1">Yes</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid for Fasting Blood Sugar
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="restecg" class="form-label"><strong>Resting ECG</strong></label>
+                <select class="form-select" id="validationRestingBP" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="0">LVH</option>
+                  <option value="1" selected="selected">Normal</option>
+                  <option value="2">ST</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid for Resting ECG
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="thalach" class="form-label"><strong>MaxHR</strong></label>
+                <input type="number" class="form-control" id="validationMaxHR" value="172" required>
+                <div class="invalid-feedback">
+                  Please provide a valid for Max HR
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="exang" class="form-label"><strong>Exercise Angina</strong></label>
+                <select class="form-select" id="validationExerAngina" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="0">No</option>
+                  <option value="1" selected="selected">Yes</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid for Exercise Angina
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="oldpeak" class="form-label"><strong>Old Peak</strong></label>
+                <input type="number" class="form-control" id="validationOldPeak" value="1" required>
+                <div class="invalid-feedback">
+                  Please provide a valid for Old Peak
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="slope" class="form-label"><strong>ST_Slope</strong></label>
+                <select class="form-select" id="validationSTSlope" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="0">Down</option>
+                  <option value="1" selected="selected">Flat</option>
+                  <option value="2">Up</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid ST_Slope
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="ca" class="form-label"><strong>Major Vessels</strong></label>
+                <select class="form-select" id="validationMajorVessels" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="0">Low</option>
+                  <option value="1" selected="selected">Medium</option>
+                  <option value="2">High</option>
+                  <option value="3">Very High</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid major vessels
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="thal" class="form-label"><strong>Thalassemia</strong></label>
+                <select class="form-select" id="validationThal" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="3" selected="selected">Normal</option>
+                  <option value="6">Fixed defect</option>
+                  <option value="7">Reversable defect</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid selection for Thalassemia
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <label class="form-check-label" for="invalidCheck">
+                    Agree to terms: I understand that the outcome is a prediction based on trained models. This outcome
+                    will only be used as a inference for further analysis
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary" type="submit">Predict</button>
+              </div>
+            </form>
+            <br><code>Value List: {{ value_list }}</code>
+            <br><code>Outcome: Prediction of Heart Disease as boolean value: {{ prediction }}</code>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Fetal Health
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Parameters:</strong>
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+        <div class="row content">
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <div class="card-header belly-bg text-light text-center header-font">Test Subject ID</div>
+                    <div class="card-body p-2 text-center bg-light">
+                        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header belly-bg text-light text-center header-font">Demographic Info</div>
+                    <div class="card-body p-2 bg-light" id="sample-metadata">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="bar"></div>
+            </div>
+            <div class="col-md-5">
+                <div id="gauge"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="bubble"></div>
+            </div>
+        </div>
+    </div> -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="./static/js/validation.js"></script>
+
+</body>
+
+</html>

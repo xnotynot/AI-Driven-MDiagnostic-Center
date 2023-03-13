@@ -1,0 +1,29 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="cp <= 0.5\ngini = 0.5\nsamples = 123\nvalue = [105, 100]\nclass = disease", fillcolor="#fef9f6"] ;
+1 [label="trestbps <= 143.0\ngini = 0.34\nsamples = 67\nvalue = [90, 25]\nclass = disease", fillcolor="#eca470"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="slope <= 1.5\ngini = 0.42\nsamples = 50\nvalue = [60, 25]\nclass = disease", fillcolor="#f0b58b"] ;
+1 -> 2 ;
+3 [label="gini = 0.34\nsamples = 34\nvalue = [44, 12]\nclass = disease", fillcolor="#eca36f"] ;
+2 -> 3 ;
+4 [label="gini = 0.49\nsamples = 16\nvalue = [16, 13]\nclass = disease", fillcolor="#fae7da"] ;
+2 -> 4 ;
+5 [label="gini = 0.0\nsamples = 17\nvalue = [30, 0]\nclass = disease", fillcolor="#e58139"] ;
+1 -> 5 ;
+6 [label="oldpeak <= 2.2\ngini = 0.28\nsamples = 56\nvalue = [15, 75]\nclass = no disease", fillcolor="#61b1ea"] ;
+0 -> 6 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+7 [label="age <= 59.5\ngini = 0.18\nsamples = 51\nvalue = [8, 70]\nclass = no disease", fillcolor="#50a8e8"] ;
+6 -> 7 ;
+8 [label="gini = 0.22\nsamples = 40\nvalue = [8, 54]\nclass = no disease", fillcolor="#56ace9"] ;
+7 -> 8 ;
+9 [label="gini = 0.0\nsamples = 11\nvalue = [0, 16]\nclass = no disease", fillcolor="#399de5"] ;
+7 -> 9 ;
+10 [label="ca <= 0.5\ngini = 0.49\nsamples = 5\nvalue = [7, 5]\nclass = disease", fillcolor="#f8dbc6"] ;
+6 -> 10 ;
+11 [label="gini = 0.28\nsamples = 3\nvalue = [1, 5]\nclass = no disease", fillcolor="#61b1ea"] ;
+10 -> 11 ;
+12 [label="gini = 0.0\nsamples = 2\nvalue = [6, 0]\nclass = disease", fillcolor="#e58139"] ;
+10 -> 12 ;
+}

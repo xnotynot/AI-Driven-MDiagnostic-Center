@@ -1,0 +1,138 @@
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Fetal Health
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {% include 'fetalhealth_info.html' %}
+        <hr class="bg-danger border-2 border-top border-danger"><br>
+        <form class="row g-3 needs-validation" novalidate action="/fetal" method="post">
+          <div class="row">
+            <div class="col-md-6">
+                <label for="validationModel" class="form-label"><strong>Select Model</strong></label>
+                  <select class="form-select" name="Model_y" id="validationModel" value="0" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="0">Logistic Regression</option>
+                    <option value="1">K-nearest Neighbors</option>
+                    <option value="2">Support Vector Machine</option>
+                    <option value="3">Decision Tree Classifier</option>
+                    <option value="4" selected="selected">Random Forest Classfier</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid model.
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <img src="../static/images/fetal_health_model_accuracy.jpg" class="rounded float-right" alt="Heart Disease Model Accuracy">
+              </div>
+            </div>
+          <hr class="bg-danger border-2 border-top border-danger">
+          <div class="row">
+            <div class="col-md-3">
+              <label for="base-line-val" class="form-label"><strong>Base Line Value</strong></label>
+              <input type="number" class="form-control" name="y_blval" id="validationBlv" value="120" required>
+            </div>
+            <div class="col-md-3">
+              <label for="acceleration" class="form-label"><strong>Acceleration</strong></label>
+              <input type="number" class="form-control" name="y_accl" id="validationAcc" value="0.006" required>
+            </div>
+            <div class="col-md-3">
+              <label for="fetal-movement" class="form-label"><strong>Fetal Movement</strong></label>
+              <input type="number" class="form-control" name="y_fetal_mov" id="validationFm" value="0" required>
+            </div>
+            <div class="col-md-3">
+              <label for="uterine-contaction" class="form-label"><strong>Uterine Contraction</strong></label>
+              <input type="number" class="form-control" name="y_uc" id="validationUc" value="0.006" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="light-decelerations" class="form-label"><strong>Light Decelerations</strong></label>
+              <input type="number" class="form-control" name="y_ldc" id="validationLd" value="0.006" required>
+            </div>
+            <div class="col-md-3">
+              <label for="severe-decelerations" class="form-label"><strong>Severe Decelerations</strong></label>
+              <input type="number" class="form-control" name="y_sdc" id="validationsd" value="0.0" required>
+            </div>
+            <div class="col-md-3">
+              <label for="prolonged-decelerations" class="form-label"><strong>Prolonged Decelerations</strong></label>
+              <input type="number" class="form-control" name="y_prodc" id="validationPd" value="0.0" required>
+            </div>
+            <div class="col-md-3">
+              <label for="abnormal-short-term-variability" class="form-label"><strong>Abnormal Short Term Variability</strong></label>
+              <input type="number" class="form-control" name="y_abst" id="validationAstv" value="17" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="mean-value-short-term-variability" class="form-label"><strong>Mean Value of Short Term Variability</strong></label>
+              <input type="number" class="form-control" name="y_mvst" id="validationMvstv" value="2.1" required>
+            </div>
+            <div class="col-md-3">
+              <label for="percentage_time_with_abnormal_long_term_variability" class="form-label"><strong>% Time w/Abnormal Long Term Variability</strong></label>
+              <input type="number" class="form-control" name="y_twabtrv" id="validationPtwstv" value="0" required>
+            </div>
+            <div class="col-md-3">
+              <label for="mean-value-long-term-variability" class="form-label"><strong>Mean of Long Term Variability</strong></label>
+              <input type="number" class="form-control" name="y_mltv" id="validationMvltv" value="10.4" required>
+            </div>
+            <div class="col-md-3">
+              <label for="histogram_width" class="form-label"><strong>Histogram Width</strong></label>
+              <input type="number" class="form-control" name="y_hist_wdth" id="validationHw" value="130" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="histogram_min" class="form-label"><strong>Histogram Minimum</strong></label>
+              <input type="number" class="form-control" name="y_hist_min" id="validationHm" value="68" required>
+            </div>
+            <div class="col-md-3">
+              <label for="histogram_max" class="form-label"><strong>Histogram Maximum</strong></label>
+              <input type="number" class="form-control" name="y_hist_max" id="validationHmx" value="198" required>
+            </div>
+            <div class="col-md-3">
+              <label for="histogram-num-peaks" class="form-label"><strong>Histogram Number of Peaks</strong></label>
+              <input type="number" class="form-control" name="y_hist_npeak" id="validationHnp" value="6" required>
+            </div>
+            <div class="col-md-3">
+              <label for="histogram-num-zeroes" class="form-label"><strong>Histogram Number of Zeroes</strong></label>
+              <input type="number" class="form-control" name="y_hist_zeros" id="validationHnz" value="1" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="histogram-Mode" class="form-label"><strong>Histogram Mode</strong></label>
+              <input type="number" class="form-control" name="y_hist_mode" id="validationMode" value="141" required>
+            </div>
+            <div class="col-md-3">
+              <label for="histogram-mean" class="form-label"><strong>Histogram Mean</strong></label>
+              <input type="number" class="form-control" name="y_hist_mean" id="validationMean" value="136" required>
+            </div>
+            <div class="col-md-3">
+              <label for="histogram-median" class="form-label"><strong>Histogram Median</strong></label>
+              <input type="number" class="form-control" name="y_hist_median" id="validationMedian" value="140" required>
+            </div>
+            <div class="col-md-3">
+              <label for="histogram-variance" class="form-label"><strong>Histogram Variance</strong></label>
+              <input type="number" class="form-control" name="y_hist_var" id="validationVar" value="12" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+              <label for="histogram-tendency" class="form-label"><strong>Histogram Tendency</strong></label>
+              <input type="number" class="form-control" name="y_hist_tend" id="validationTend" value="0" required>
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" name="predict_y" type="submit">Predict</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

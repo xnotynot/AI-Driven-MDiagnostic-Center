@@ -4,13 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<<<<<<< HEAD
   <title>AI Driven Diagnistic Center</title>
 
   <!-- Bootstrap CSS-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
+=======
+  <title>AI Driven Diagnostic Center</title>
+>>>>>>> 76ba665 (20232203)
 
+  <!-- Bootstrap CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <!-- custom CSS-->
   <link href="static/css/style.css" rel="stylesheet">
 </head>
@@ -19,10 +27,17 @@
   <div class="container">
     {% include 'header.html' %}
     <hr class="bg-danger border-2 border-top border-danger"><br>    
+<<<<<<< HEAD
     <div class="custom-accordion" id="accordion">
       <!-- List of scenarios  -->
       {% include 'heartdisease.html' %}
       {% include 'fetalhealth.html' %}
+=======
+    <div class="accordion" id="accordionExample">
+      <!-- List of scenarios  -->
+      {% include 'heartdisease.html' %}      
+      {% include 'fetalhealth.html' %}      
+>>>>>>> 76ba665 (20232203)
     </div>
     <br>
     <hr class="bg-danger border-2 border-top border-danger"><br>        
@@ -39,6 +54,17 @@
 
   <script src="./static/js/validation.js"></script>
   <script src="./static/js/accordiansaver.js"></script>
+<<<<<<< HEAD
+=======
+  <script>
+    $(function () {
+      $('#accordion').on('shown.bs.collapse', function (e) {
+          saveActiveAccordionPanel('accordion-activePanel', e);
+      })        
+    });
+    restoreAccordionPanel('accordion-activePanel', '#accordion');
+  </script>
+>>>>>>> 76ba665 (20232203)
 </body>
 
 </html>

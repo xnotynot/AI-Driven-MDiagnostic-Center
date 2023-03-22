@@ -1,0 +1,32 @@
+<div class="accordion-item">
+    <h2 class="accordion-header" id="heartDiseaseInfo">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseheartDiseaseInfo" 
+      aria-expanded="false" aria-controls="collapseheartDiseaseInfo">
+        Heart Disease Info
+      </button>
+    </h2>
+    <div id="collapseheartDiseaseInfo" class="accordion-collapse collapse" aria-labelledby="heartDiseaseInfo"
+      data-bs-parent="#heartDisease">
+        <div class="accordion-body">
+        <hr class="bg-danger border-2 border-top border-danger"><br>
+        <div class="col-md-6">
+            <label for="validationModel" class="form-label"><strong>Select Model</strong></label>
+              <select class="form-select" name="Model_x" id="validationModel" value="0" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="0">Logistic Regression</option>
+                <option value="1">K-nearest Neighbors</option>
+                <option value="2">Support Vector Machine</option>
+                <option value="3">Decision Tree Classifier</option>
+                <option value="4" selected="selected">Random Forest Classfier</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid model.
+              </div>
+          </div>
+          <div class="col-md-3">
+              <img src="../static/images/heart_diesease_model_accuracy.jpg" class="rounded float-right" alt="Heart Disease Model Accuracy">
+          </div>
+      </div>
+        </div>
+    </div>
+</div>

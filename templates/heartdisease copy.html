@@ -1,0 +1,182 @@
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" 
+      aria-expanded="false" aria-controls="collapseOne">
+        Heart Disease
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <hr class="bg-danger border-2 border-top border-danger"><br>
+        <form class="row g-3 needs-validation" novalidate action="/heart" method="post">
+          <div class="row">
+            <div class="col-md-6">
+                <label for="validationModel" class="form-label"><strong>Select Model</strong></label>
+                  <select class="form-select" name="Model_x" id="validationModel" value="0" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="0">Logistic Regression</option>
+                    <option value="1">K-nearest Neighbors</option>
+                    <option value="2">Support Vector Machine</option>
+                    <option value="3">Decision Tree Classifier</option>
+                    <option value="4" selected="selected">Random Forest Classfier</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid model.
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <img src="../static/images/heart_diesease_model_accuracy.jpg" class="rounded float-right" alt="Heart Disease Model Accuracy">
+              </div>
+            </div>
+          <hr class="bg-danger border-2 border-top border-danger">
+          <div class="row">
+            <div class="col-md-3">
+              <label for="age" class="form-label"><strong>Age</strong></label>
+              <input type="number" class="form-control" name="age" id="validationAge" value={{ modelx_values.age }} required>
+            </div>
+            <div class="col-md-3">
+              <label for="sex" class="form-label"><strong>Sex</strong></label>
+              <select class="form-select" name="sex" id="validationSex" data-live-search= true required>
+                <option value="1" {% if modelx_values.sex=="1" %} selected="selected"{% endif %}>Male</option>
+                <option value="0" {% if modelx_values.sex=="0" %} selected="selected"{% endif %}>Female</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select Model
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="cp" class="form-label"><strong>Chest Pain Type</strong></label>
+            <select class="form-select" name="cp" id="validationChestPainType" required>
+              <option value="0" {% if modelx_values.cp=="0" %} selected="selected"{% endif %}>asymptomatic ASY</option>
+              <option value="1" {% if modelx_values.cp=="1" %} selected="selected"{% endif %}>atypical angina ATA</option>
+              <option value="2" {% if modelx_values.cp=="2" %} selected="selected"{% endif %}>non-anginal pain NAP</option>
+              <option value="3" {% if modelx_values.cp=="3" %} selected="selected"{% endif %}>typical angina TA</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid Chest Pain Type.
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="trestbps" class="form-label"><strong>Resting Blood Pressure</strong></label>
+            <input type="number" class="form-control" name="trestbps" id="validationRestingBP" value={{ modelx_values.trestbps }} required>
+            <div class="invalid-feedback">
+              Please select a valid Resting Blood Pressure
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="chol" class="form-label"><strong>Chloestrol</strong></label>
+            <input type="number" class="form-control" name="chol" id="validationCholestrol" value={{ modelx_values.chol }} required>
+            <div class="invalid-feedback">
+              Please provide a valid value for Chloestrol
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="fbs" class="form-label"><strong>Fasting Blood Sugar</strong></label>
+            <select class="form-select" name="fbs" id="validationFastingBS" required>
+              <option value="0"{% if modelx_values.fbs=="0" %} selected="selected"{% endif %}>No</option>
+              <option value="1" {% if modelx_values.fbs=="1" %} selected="selected"{% endif %}>Yes</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid for Fasting Blood Sugar
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="restecg" class="form-label"><strong>Resting ECG</strong></label>
+            <select class="form-select" name="restecg" id="validationRestingBP" required>
+              <option value="0" {% if modelx_values.restecg=="0" %} selected="selected"{% endif %}>LVH</option>
+              <option value="1" {% if modelx_values.restecg=="1" %} selected="selected"{% endif %}>Normal</option>
+              <option value="2" {% if modelx_values.restecg=="2" %} selected="selected"{% endif %}>ST</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid for Resting ECG
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="thalach" class="form-label"><strong>MaxHR</strong></label>
+            <input type="number" class="form-control" name="thalach" id="validationMaxHR" value={{ modelx_values.thalach }} required>
+            <div class="invalid-feedback">
+              Please provide a valid for Max HR
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="exang" class="form-label"><strong>Exercise Angina</strong></label>
+            <select class="form-select" name="exang" id="validationExerAngina" value= {{ modelx_values.exang }} required>
+              <option value="0"  {% if modelx_values.exang=="0" %} selected="selected"{% endif %}>No</option>
+              <option value="1"  {% if modelx_values.exang=="1" %} selected="selected"{% endif %}>Yes</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid for Exercise Angina
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="oldpeak" class="form-label"><strong>Old Peak</strong></label>
+            <input type="number" class="form-control" name="oldpeak" id="validationOldPeak" value={{ modelx_values.oldpeak }} required>
+            <div class="invalid-feedback">
+              Please provide a valid for Old Peak
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="slope" class="form-label"><strong>ST_Slope</strong></label>
+            <select class="form-select" name="slope" id="validationSTSlope" value={{ modelx_values.slope }} required>
+              <option value="0"  {% if modelx_values.slope=="0" %} selected="selected"{% endif %}>Down</option>
+              <option value="1"  {% if modelx_values.slope=="1" %} selected="selected"{% endif %}>Flat</option>
+              <option value="2"  {% if modelx_values.slope=="2" %} selected="selected"{% endif %}>Up</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid ST_Slope
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="ca" class="form-label"><strong>Major Vessels</strong></label>
+            <select class="form-select" name="ca" id="validationMajorVessels" value={{ modelx_values.ca }} required>
+              <option value="0"  {% if modelx_values.ca=="0" %} selected="selected"{% endif %}>Low</option>
+              <option value="1"  {% if modelx_values.ca=="1" %} selected="selected"{% endif %}>Medium</option>
+              <option value="2"  {% if modelx_values.ca=="2" %} selected="selected"{% endif %}>High</option>
+              <option value="3"  {% if modelx_values.ca=="3" %} selected="selected"{% endif %}>Very High</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid major vessels
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="thal" class="form-label"><strong>Thalassemia</strong></label>
+            <select class="form-select" name="thal" id="validationThal" value={{ modelx_values.thal }} required>
+              <option value="3" {% if modelx_values.thal=="3" %} selected="selected"{% endif %}>Normal</option>
+              <option value="6" {% if modelx_values.thal=="6" %} selected="selected"{% endif %}>Fixed defect</option>
+              <option value="7" {% if modelx_values.thal=="7" %} selected="selected"{% endif %}>Reversable defect</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid selection for Thalassemia
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms: I understand that the outcome is a prediction based on trained models. This outcome
+                will only be used as a inference for further analysis
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Predict</button>
+          </div>
+        </form>
+        <br>
+        <!-- {{ values_list }} -->
+        {% if xresult == 0 %}
+          <i class="fa fa-heart" style="font-size:60px;color:rgba(166, 231, 168, 0.636)"></i>
+          <br><code style="color:rgba(10, 83, 12, 0.636)">Prediction of Heart Disease: {{ prediction }}</code>
+        {% endif %}
+        {% if xresult == 1 %}
+          <i class="fa fa-heart" style="font-size:60px;color:rgba(249, 4, 4, 0.636)"></i>
+          <br><code style="color:rgba(249, 4, 4, 0.636)">Prediction of Heart Disease: {{ prediction }}</code>
+        {% endif %}
+      </div>
+    </div>
+</div>

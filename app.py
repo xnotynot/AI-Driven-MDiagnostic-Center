@@ -27,23 +27,6 @@ modelx_values = { "age": "70",
                   "ca": "1",
                   "thal": "3"
                    }
-
-<<<<<<< HEAD
-# modely_values = { "age": "70", 
-#                   "sex": "1", 
-#                   "cp": "2", 
-#                   "trestbps": "140",
-#                   "chol": "234",
-#                   "fbs": "0",
-#                   "restecg": "0",
-#                   "thalach": "172",
-#                   "exang": "1",
-#                   "oldpeak": "1",
-#                   "slope": "1",
-#                   "ca": "1",
-#                   "thal": "3"
-#                    }
-=======
 modely_values = {   "y_blval": "120",
                     "y_accl": "1",
                     "y_fetal_mov": "0",
@@ -70,7 +53,6 @@ modely_values = {   "y_blval": "120",
                     "y_hist_var": "12",
                     "y_hist_tend": "0"
                 }
->>>>>>> 76ba665 (20232203)
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 lrcl_model_url = os.path.join(SITE_ROOT, "static/models", "lrcl.pkl")
@@ -79,34 +61,18 @@ svcl_model_url = os.path.join(SITE_ROOT, "static/models", "svmcl.pkl")
 dtcl_model_url = os.path.join(SITE_ROOT, "static/models", "dtcl.pkl")
 rfcl_model_url = os.path.join(SITE_ROOT, "static/models", "rfcl.pkl")
 
-<<<<<<< HEAD
-=======
 lrfh_cl_model_url = os.path.join(SITE_ROOT, "static/models", "lr_fh_cl.pkl")
 knfh_cl_model_url = os.path.join(SITE_ROOT, "static/models", "kn_fh_cl.pkl")
 svfh_cl_model_url = os.path.join(SITE_ROOT, "static/models", "svm_fh_cl.pkl")
 dtfh_cl_model_url = os.path.join(SITE_ROOT, "static/models", "dtcl.pkl")
 rffh_cl_model_url = os.path.join(SITE_ROOT, "static/models", "rfcl.pkl")
 
->>>>>>> 76ba665 (20232203)
 lgmodel = pickle.load(open(lrcl_model_url, 'rb'))
 knmodel = pickle.load(open(kncl_model_url, 'rb'))
 svmodel = pickle.load(open(svcl_model_url, 'rb'))
 dtmodel = pickle.load(open(dtcl_model_url,'rb'))
 rfmodel = pickle.load(open(rfcl_model_url, 'rb'))
 
-<<<<<<< HEAD
-def switch_model(hd_model):
-    if hd_model == "0":
-        return lgmodel
-    elif hd_model == "1":
-        return knmodel
-    elif hd_model == "2":
-        return svmodel
-    elif hd_model == "3 ":
-        return dtmodel
-    elif hd_model == "4":
-        return rfmodel
-=======
 lgclmodel = pickle.load(open(lrfh_cl_model_url, 'rb'))
 knclmodel = pickle.load(open(knfh_cl_model_url, 'rb'))
 svclmodel = pickle.load(open(svfh_cl_model_url, 'rb'))
@@ -134,7 +100,6 @@ def switch_model(hd_model):
             return dtclmodel
         elif hd_model == "9":
             return rfclmodel
->>>>>>> 76ba665 (20232203)
     
 # prediction function
 def ValuePredictor(model_id, max_predictor, to_predict_list):
@@ -150,8 +115,6 @@ def home():
 def result():
     if request.method == 'POST':
         to_predict_list = request.form.to_dict()
-<<<<<<< HEAD
-
         #get screen values and store it local variable for reload
         for key,val in to_predict_list.items():
             if key in modelx_values.keys():
@@ -165,41 +128,6 @@ def result():
         else:
             xprediction = "Heart Disease Improbable"
         return render_template("index.html", modelx_values = modelx_values, prediction = xprediction, xresult = result)
-
-# @app.route('/fetal', methods = ['POST'])
-# def result():
-#     if request.method == 'POST':
-#         to_predict_list = request.form.to_dict()
-
-#         #get screen values and store it local variable for reload
-#         for key,val in to_predict_list.items():
-#             if key in modelx_values.keys():
-#                 modelx_values[key] = val
-#         model_id = to_predict_list['Model_y']
-#         to_predict_list = list(modely_values.values())
-#         to_predict_list = list(map(int, to_predict_list))
-#         result = ValuePredictor(model_id, 13, to_predict_list)        
-#         if int(result)== 1:
-#             xprediction = "Probable Heart Disease"
-#         else:
-#             xprediction = "Heart Disease Improbable"
-#         return render_template("index.html", modelx_values = modelx_values, prediction = xprediction, xresult = result)
-    
-=======
-
-        #get screen values and store it local variable for reload
-        for key,val in to_predict_list.items():
-            if key in modelx_values.keys():
-                modelx_values[key] = val
-        model_xid = to_predict_list['Model_x']
-        to_predict_list = list(modelx_values.values())
-        to_predict_list = list(map(int, to_predict_list))
-        result = ValuePredictor(model_xid, 13, to_predict_list)        
-        if int(result)== 1:
-            xprediction = "Probable Heart Disease"
-        else:
-            xprediction = "Heart Disease Improbable"
-        return render_template("index.html", modelx_values = modelx_values, xprediction = xprediction, xresult = result)
 
 @app.route('/fetal', methods = ['POST'])
 def result_y():
@@ -221,6 +149,5 @@ def result_y():
             yprediction = "Pachogenic"
         return render_template("index.html", modelx_values = modelx_values, yprediction = yprediction, yresult = result)
    
->>>>>>> 76ba665 (20232203)
 if __name__ == "__main__":
     app.run(debug=True)

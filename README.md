@@ -10,9 +10,4 @@ The front end of the tool is a web based design where the parameters for a parti
 
 The modeling is designed so that the code can be easily adapted for multiple fields of medicine and as additional decision parameters are determined, the models can be quickly remodeled and updated.
 
-<<<<<<< HEAD
 The output of this project is a patient outcome based on the model selected and the patient information entered.
-
-=======
-The output of this project is a patient outcome based on the model selected and the patient information entered.
->>>>>>> 76ba665 (20232203)
